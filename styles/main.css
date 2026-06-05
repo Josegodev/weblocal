@@ -1,8 +1,8 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #0602f3;
-    color: rgb(227, 243, 8);
+    background-color: #000003;
+    color: rgb(43, 46, 1);
 }
 
 h1,
@@ -27,7 +27,7 @@ code {
 }
 
 body {
-    background-color: #1890FF !important;
+    background-color: #1901eb !important;
 }
 
 /* Adiciona la regla de fondo azul maya */

@@ -1,63 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Local Website</title>
+    <title>Crea un sitio web local</title>
     <!-- Enlazar el archivo CSS -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-    <h1>Create a Local Website</h1>
-    <h2>Prerequisites</h2>
-    <p>Before starting, ensure you have the following installed:</p>
+    <h1>Crea un sitio web local</h1>
+    <h2>Requisitos previos</h2>
+    <p>Antes de comenzar, asegúrate de tener lo siguiente instalado:</p>
     <ul>
         <li><code>Node.js</code></li>
         <li><code>npm</code></li>
     </ul>
-    <h2>Step-by-step Guide</h2>
+    <h2>Guía paso a paso</h2>
     <ol>
-        <li>Create a new folder for your project:</br>
+        <li>Crea una carpeta para tu proyecto:</br>
             ```bash
-            mkdir my-local-website
+            mkdir mi-sitio-web-local
             ```
         </li>
-        <li>Navigate into the newly created folder:</br>
+        <li>Navega hasta la carpeta recién creada:</br>
             ```bash
-            cd my-local-website
+            cd mi-sitio-web-local
             ```
         </li>
-        <li>Initialize a new Node.js project and install required dependencies:</br>
+        <li>Inicializa un proyecto de Node.js y instala las dependencias necesarias:</br>
             ```bash
             npm init -y
             npm install express --save
             ```
         </li>
-        <li>Create an `index.html` file in the root of your project folder:</br>
+        <li>Crea un archivo `index.html` en la carpeta principal de tu proyecto:</br>
             ```bash
             echo '
             <!DOCTYPE html>
-            <html lang="en">
+            <html lang="es">
 
             <head>
-                <title>My Local Website</title>
+                <title>Mi sitio web</title>
             </head>
 
             <body>
-                <h1>Welcome to my local website!</h1>
+                <h1>Bienvenido a mi sitio web local!</h1>
             </body>
 
             </html>' > index.html
             ```
         </li>
-        <li>Create a new `app.js` file in the root of your project folder:</br>
+        <li>Crea un archivo `app.js` en la carpeta principal de tu proyecto:</br>
             ```bash
             touch app.js
             ```
         </li>
-        <li>Add the following code to `app.js`:</br>
+        <li>Agrega el siguiente código a `app.js`:</br>
             ```javascript src/app.js
             const express = require('express');
             const path = require('path');
@@ -76,12 +76,12 @@
             app.listen(3000);
             ```
         </li>
-        <li>Start your local web server:</br>
+        <li>Arranca el servidor web local:</br>
             ```bash
             node app.js
             ```
         </li>
-        <li>Open a web browser and go to `http://localhost:3000`</li>
+        <li>Abre un navegador y vaya a `http://localhost:3000`</li>
     </ol>
 </body>
 

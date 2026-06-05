@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Local Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        pre {
+            white-space: pre-wrap;
+        }
+
+        code {
+            background-color: #f9f9f9;
+            padding: .2em;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create a Local Website</h1>
+    <h2>Prerequisites</h2>
+    <p>Before starting, ensure you have the following installed:</p>
+    <ul>
+        <li><code>Node.js</code></li>
+        <li><code>npm</code></li>
+    </ul>
+    <h2>Step-by-step Guide</h2>
+    <ol>
+        <li>Create a new folder for your project:</br>
+            ```bash
+            mkdir my-local-website
+            ```
+        </li>
+        <li>Navigate into the newly created folder:</br>
+            ```bash
+            cd my-local-website
+            ```
+        </li>
+        <li>Initialize a new Node.js project and install required dependencies:</br>
+            ```bash
+            npm init -y
+            npm install express --save
+            ```
+        </li>
+        <li>Create an `index.html` file in the root of your project folder:</br>
+            ```bash
+            echo '
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <title>My Local Website</title>
+            </head>
+
+            <body>
+                <h1>Welcome to my local website!</h1>
+            </body>
+
+            </html>' > index.html
+            ```
+        </li>
+        <li>Create a new `app.js` file in the root of your project folder:</br>
+            ```bash
+            touch app.js
+            ```
+        </li>
+        <li>Add the following code to `app.js`:</br>
+            ```javascript src/app.js
+            const express = require('express');
+            const path = require('path');
+
+            const app = express();
+
+            // Serve static files from the root folder (including index.html)
+            app.use(express.static(__dirname));
+
+            // Set the home route to serve our index.html file
+            app.get('/', (req, res) => {
+            res.sendFile(path.resolve(__dirname, 'index.html'));
+            });
+
+            // Start the server on port 3000
+            app.listen(3000);
+            ```
+        </li>
+        <li>Start your local web server:</br>
+            ```bash
+            node app.js
+            ```
+        </li>
+        <li>Open a web browser and go to `http://localhost:3000`</li>
+    </ol>
+</body>
+
+</html>

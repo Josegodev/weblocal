@@ -1,47 +1,75 @@
 (function () {
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
+    const tabTriggers = document.querySelectorAll('[data-tab]');
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const sections = document.querySelectorAll('.tab-content');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const validTabs = Array.from(sections).map(function (section) {
+        return section.id;
+    });
 
-    function activateTab(tabId) {
-        tabs.forEach(function (link) {
-            const isActive = link.getAttribute('data-tab') === tabId;
-            link.classList.toggle('active', isActive);
-        });
-
-        contents.forEach(function (section) {
-            const isActive = section.id === tabId;
-            section.classList.toggle('active', isActive);
-        });
+    function closeMenu() {
+        document.body.classList.remove('menu-open');
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
     }
 
     function getTabFromHash() {
         const hash = window.location.hash.replace('#', '');
-        if (hash) {
-            const match = document.querySelector('.tab-link[data-tab="' + hash + '"]');
-            if (match) return hash;
-        }
-        return 'inicio';
+        return validTabs.includes(hash) ? hash : 'inicio';
     }
 
-    function handleTabClick(e) {
-        e.preventDefault();
-        const tabId = this.getAttribute('data-tab');
-        window.location.hash = tabId;
-        activateTab(tabId);
+    function activateTab(tabId) {
+        const nextTab = validTabs.includes(tabId) ? tabId : 'inicio';
+
+        sections.forEach(function (section) {
+            section.classList.toggle('active', section.id === nextTab);
+        });
+
+        tabLinks.forEach(function (link) {
+            const isActive = link.getAttribute('data-tab') === nextTab;
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+
+        closeMenu();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    tabs.forEach(function (link) {
-        link.addEventListener('click', handleTabClick);
+    tabTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function (event) {
+            const tabId = trigger.getAttribute('data-tab');
+            if (!tabId) return;
+
+            event.preventDefault();
+            if (window.location.hash === '#' + tabId) {
+                activateTab(tabId);
+            } else {
+                window.location.hash = tabId;
+            }
+        });
     });
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function () {
+            const isOpen = document.body.classList.toggle('menu-open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+    }
 
     window.addEventListener('hashchange', function () {
-        const tabId = getTabFromHash();
-        activateTab(tabId);
+        activateTab(getTabFromHash());
     });
 
-    const initialTab = getTabFromHash();
-    if (window.location.hash !== '#' + initialTab) {
-        window.location.hash = initialTab;
-    }
-    activateTab(initialTab);
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    activateTab(getTabFromHash());
 })();

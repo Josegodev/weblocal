@@ -3,237 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial Web Local</title>
+    <title>Backend Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-inner">
-            <a href="#" class="nav-brand">WebLocal</a>
-            <ul class="nav-tabs">
-                <li><a href="#inicio" class="tab-link active" data-tab="inicio">Inicio</a></li>
-                <li><a href="#guia" class="tab-link" data-tab="guia">Guía</a></li>
-                <li><a href="#recursos" class="tab-link" data-tab="recursos">Recursos</a></li>
-                <li><a href="#acerca" class="tab-link" data-tab="acerca">Acerca de</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="app-shell">
+        <aside class="sidebar" id="sidebar" aria-label="Temario del curso">
+            <a href="#inicio" class="brand" data-tab="inicio" aria-label="Backend Master inicio">
+                <span class="brand-mark">BM</span>
+                <span>
+                    <strong>Backend Master</strong>
+                    <small>Developer-first course</small>
+                </span>
+            </a>
 
-    <main>
-        <section id="inicio" class="tab-content active">
-            <div class="hero">
-                <div class="container">
-                    <h1 class="hero-title">Crea tu primer sitio web local</h1>
-                    <p class="hero-subtitle">Aprende Node.js y Express desde cero. Sin complicaciones.</p>
-                    <a href="#guia" class="btn btn-primary" data-tab="guia">Comenzar ahora</a>
+            <div class="course-progress" aria-label="Progreso del curso">
+                <div class="progress-copy">
+                    <span>Modulo 01</span>
+                    <strong>Servidor local</strong>
                 </div>
+                <div class="progress-bar"><span style="width: 38%"></span></div>
+                <p>3 de 8 pasos completados</p>
             </div>
 
-            <section class="section features-section">
-                <div class="container">
-                    <h2 class="section-title">¿Qué aprenderás?</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">📦</div>
-                            <h3>Configurar Node.js</h3>
-                            <p>Crea un proyecto desde cero con npm y package.json</p>
+            <nav class="lesson-nav">
+                <p class="nav-label">Temario</p>
+                <a href="#inicio" class="tab-link active" data-tab="inicio">
+                    <span>01</span>
+                    Overview
+                </a>
+                <a href="#guia" class="tab-link" data-tab="guia">
+                    <span>02</span>
+                    Setup Express
+                </a>
+                <a href="#recursos" class="tab-link" data-tab="recursos">
+                    <span>03</span>
+                    Recursos
+                </a>
+                <a href="#acerca" class="tab-link" data-tab="acerca">
+                    <span>04</span>
+                    Proyecto
+                </a>
+            </nav>
+
+            <div class="sidebar-card">
+                <span class="status-dot"></span>
+                <strong>Node runtime activo</strong>
+                <p>Entorno listo para construir APIs, rutas y archivos estaticos.</p>
+            </div>
+        </aside>
+
+        <div class="page">
+            <header class="topbar">
+                <button class="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                </button>
+                <label class="search-box">
+                    <span>/</span>
+                    <input type="search" placeholder="Buscar rutas, comandos o conceptos" aria-label="Buscar">
+                </label>
+                <div class="profile-chip" aria-label="Perfil del estudiante">
+                    <span class="profile-avatar">JG</span>
+                    <span>Junior Backend</span>
+                </div>
+            </header>
+
+            <main class="content">
+                <section id="inicio" class="tab-content active" aria-labelledby="inicio-title">
+                    <div class="hero-panel">
+                        <div class="hero-copy">
+                            <p class="eyebrow">Portal educativo tecnico</p>
+                            <h1 id="inicio-title">Domina tu primer backend local.</h1>
+                            <p>Construye una web servida con Node.js y Express desde cero, con una experiencia visual pensada para leer codigo, ejecutar comandos y entender cada paso.</p>
+                            <div class="hero-actions">
+                                <a href="#guia" class="btn btn-primary" data-tab="guia">Iniciar modulo</a>
+                                <a href="#recursos" class="btn btn-ghost" data-tab="recursos">Ver documentacion</a>
+                            </div>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">⚡</div>
-                            <h3>Express</h3>
-                            <p>Instala y configura el framework web más popular de Node.js</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🌐</div>
-                            <h3>Servidor local</h3>
-                            <p>Ejecuta tu propio servidor web en tu máquina en minutos</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🚀</div>
-                            <h3>Despliegue</h3>
-                            <p>Aprende los fundamentos para llevar tu app a producción</p>
+                        <div class="terminal-window hero-terminal" aria-label="Terminal de ejemplo">
+                            <div class="window-header">
+                                <span></span><span></span><span></span>
+                                <strong>zsh - backend-master</strong>
+                            </div>
+                            <pre><code>$ mkdir backend-master
+$ cd backend-master
+$ npm init -y
+$ npm install express
+
+added 64 packages
+server ready at http://localhost:3000</code></pre>
                         </div>
                     </div>
-                </div>
-            </section>
-        </section>
 
-        <section id="guia" class="tab-content">
-            <section class="section">
-                <div class="container">
-                    <h2 class="section-title">Guía paso a paso</h2>
-                    <div class="card">
-                        <h3>Requisitos previos</h3>
-                        <p>Antes de comenzar, asegúrate de tener lo siguiente instalado:</p>
-                        <ul>
-                            <li><code>Node.js</code></li>
-                            <li><code>npm</code></li>
-                        </ul>
-                        <h3>Pasos</h3>
-                        <ol class="steps">
-                            <li>
-                                <div class="step-content">
-                                    <h3>Crea una carpeta para tu proyecto</h3>
-                                    <pre><code class="language-bash">mkdir mi-sitio-web-local</code></pre>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="step-content">
-                                    <h3>Navega hasta la carpeta recién creada</h3>
-                                    <pre><code class="language-bash">cd mi-sitio-web-local</code></pre>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="step-content">
-                                    <h3>Inicializa un proyecto de Node.js y instala las dependencias necesarias</h3>
-                                    <pre><code class="language-bash">npm init -y
-npm install express --save</code></pre>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="step-content">
-                                    <h3>Crea un archivo <code>index.html</code> en la carpeta principal de tu proyecto</h3>
-                                    <pre><code class="language-bash">echo '
-&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
+                    <div class="metric-grid">
+                        <article class="metric-card">
+                            <span>Duracion</span>
+                            <strong>15 min</strong>
+                            <p>Ruta rapida para levantar tu primer servidor.</p>
+                        </article>
+                        <article class="metric-card">
+                            <span>Stack</span>
+                            <strong>Node + Express</strong>
+                            <p>Fundamentos reales para cualquier backend web.</p>
+                        </article>
+                        <article class="metric-card">
+                            <span>Salida</span>
+                            <strong>localhost:3000</strong>
+                            <p>Tu sitio respondiendo desde un proceso Node.</p>
+                        </article>
+                    </div>
 
-&lt;head&gt;
-    &lt;title&gt;Mi sitio web&lt;/title&gt;
-&lt;/head&gt;
+                    <section class="section-block">
+                        <div class="section-heading">
+                            <p class="eyebrow">Mapa mental</p>
+                            <h2>Arquitectura del flujo local</h2>
+                        </div>
+                        <div class="flow-grid">
+                            <article class="flow-card">
+                                <span class="flow-icon">CLI</span>
+                                <h3>Terminal</h3>
+                                <p>Ejecutas comandos npm y arrancas el proceso principal.</p>
+                            </article>
+                            <article class="flow-card">
+                                <span class="flow-icon">APP</span>
+                                <h3>Express</h3>
+                                <p>Define rutas, sirve archivos y responde al navegador.</p>
+                            </article>
+                            <article class="flow-card">
+                                <span class="flow-icon">WEB</span>
+                                <h3>Browser</h3>
+                                <p>Consume HTML, CSS y JavaScript desde localhost.</p>
+                            </article>
+                        </div>
+                    </section>
+                </section>
 
-&lt;body&gt;
-    &lt;h1&gt;Bienvenido a mi sitio web local!&lt;/h1&gt;
-&lt;/body&gt;
+                <section id="guia" class="tab-content" aria-labelledby="guia-title">
+                    <div class="section-heading align-left">
+                        <p class="eyebrow">Setup guiado</p>
+                        <h2 id="guia-title">Construye el servidor paso a paso</h2>
+                        <p>Cada paso incluye el comando o codigo necesario para avanzar sin perder contexto.</p>
+                    </div>
 
-&lt;/html&gt;' &gt; index.html</code></pre>
+                    <div class="lesson-layout">
+                        <ol class="stepper">
+                            <li>
+                                <div class="step-meta">Paso 01</div>
+                                <div class="step-body">
+                                    <h3>Crea la carpeta del proyecto</h3>
+                                    <p>Empieza con un directorio limpio para aislar dependencias y archivos.</p>
+                                    <div class="code-window">
+                                        <div class="window-header"><span></span><span></span><span></span><strong>bash</strong></div>
+                                        <pre><code>mkdir backend-master
+cd backend-master</code></pre>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="step-content">
-                                    <h3>Crea un archivo <code>app.js</code> en la carpeta principal de tu proyecto</h3>
-                                    <pre><code class="language-bash">touch app.js</code></pre>
+                                <div class="step-meta">Paso 02</div>
+                                <div class="step-body">
+                                    <h3>Inicializa Node.js</h3>
+                                    <p>Genera <code>package.json</code>, el manifiesto que describe tu proyecto.</p>
+                                    <div class="code-window">
+                                        <div class="window-header"><span></span><span></span><span></span><strong>bash</strong></div>
+                                        <pre><code>npm init -y</code></pre>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="step-content">
-                                    <h3>Agrega el siguiente código a <code>app.js</code></h3>
-                                    <pre><code class="language-javascript">const express = require('express');
+                                <div class="step-meta">Paso 03</div>
+                                <div class="step-body">
+                                    <h3>Instala Express</h3>
+                                    <p>Express sera la capa HTTP que conectara tu navegador con los archivos del proyecto.</p>
+                                    <div class="code-window">
+                                        <div class="window-header"><span></span><span></span><span></span><strong>bash</strong></div>
+                                        <pre><code>npm install express --save</code></pre>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-meta">Paso 04</div>
+                                <div class="step-body">
+                                    <h3>Crea la estructura de archivos</h3>
+                                    <p>Separa servidor, pagina y estilos como en un proyecto real.</p>
+                                    <div class="folder-tree" aria-label="Estructura de archivos">
+                                        <span>backend-master/</span>
+                                        <span>├─ app.js</span>
+                                        <span>├─ index.html</span>
+                                        <span>└─ styles/</span>
+                                        <span class="indent">└─ main.css</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-meta">Paso 05</div>
+                                <div class="step-body">
+                                    <h3>Programa el servidor</h3>
+                                    <p>Sirve archivos estaticos y responde la ruta principal.</p>
+                                    <div class="code-window tall">
+                                        <div class="window-header"><span></span><span></span><span></span><strong>app.js</strong></div>
+                                        <pre><code>const express = require('express');
 const path = require('path');
 
 const app = express();
 
-// Serve static files from the root folder (including index.html)
 app.use(express.static(__dirname));
 
-// Set the home route to serve our index.html file
 app.get('/', (req, res) =&gt; {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-// Start the server on port 3000
-app.listen(3000);</code></pre>
+app.listen(3000, () =&gt; {
+    console.log('Server running at http://localhost:3000');
+});</code></pre>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="step-content">
-                                    <h3>Arranca el servidor web local</h3>
-                                    <pre><code class="language-bash">node app.js</code></pre>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="step-content">
-                                    <h3>Abre un navegador y ve a <code>http://localhost:3000</code></h3>
-                                    <p>¡Deberías ver tu sitio web funcionando!</p>
+                                <div class="step-meta">Paso 06</div>
+                                <div class="step-body">
+                                    <h3>Ejecuta y valida</h3>
+                                    <p>Arranca el proceso y abre la URL local en el navegador.</p>
+                                    <div class="terminal-window">
+                                        <div class="window-header"><span></span><span></span><span></span><strong>terminal</strong></div>
+                                        <pre><code>$ node app.js
+Server running at http://localhost:3000</code></pre>
+                                    </div>
                                 </div>
                             </li>
                         </ol>
+
+                        <aside class="lesson-aside">
+                            <div class="aside-card">
+                                <p class="eyebrow">Checklist</p>
+                                <ul class="check-list">
+                                    <li>Node instalado</li>
+                                    <li>Dependencias en package.json</li>
+                                    <li>Express sirviendo estaticos</li>
+                                    <li>localhost respondiendo</li>
+                                </ul>
+                            </div>
+                            <div class="aside-card accent-card">
+                                <strong>Tip de backend</strong>
+                                <p>Si cambias <code>app.js</code>, reinicia el servidor o instala una herramienta como nodemon.</p>
+                            </div>
+                        </aside>
                     </div>
-                    <div style="text-align:center;margin-top:2rem">
-                        <a href="#recursos" class="btn btn-secondary" data-tab="recursos">Ver recursos adicionales</a>
+                </section>
+
+                <section id="recursos" class="tab-content" aria-labelledby="recursos-title">
+                    <div class="section-heading align-left">
+                        <p class="eyebrow">Referencia tecnica</p>
+                        <h2 id="recursos-title">Documentacion y siguientes rutas</h2>
+                        <p>Material seleccionado para continuar desde un servidor local hacia APIs reales.</p>
                     </div>
-                </div>
-            </section>
-        </section>
 
-        <section id="recursos" class="tab-content">
-            <section class="section">
-                <div class="container">
-                    <h2 class="section-title">Recursos útiles</h2>
-                    <div class="card">
-                        <p>Aquí encontrarás enlaces y sugerencias para seguir aprendiendo.</p>
-
-                        <h3>Documentación oficial</h3>
-                        <ul class="resource-list">
-                            <li>
-                                <a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer">Node.js Documentation</a>
-                                <span class="resource-desc">Guía oficial de Node.js, API reference y guías de inicio.</span>
-                            </li>
-                            <li>
-                                <a href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">npm Documentation</a>
-                                <span class="resource-desc">Todo sobre el gestor de paquetes de Node.js.</span>
-                            </li>
-                            <li>
-                                <a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Express.js Documentation</a>
-                                <span class="resource-desc">Framework web rápido y minimalista para Node.js.</span>
-                            </li>
-                        </ul>
-
-                        <h3>Próximos pasos sugeridos</h3>
-                        <ul class="resource-list">
-                            <li>
-                                <strong>Rutas y middleware</strong>
-                                <span class="resource-desc">Aprende a definir rutas y usar middleware en Express para manejar peticiones HTTP.</span>
-                            </li>
-                            <li>
-                                <strong>Bases de datos</strong>
-                                <span class="resource-desc">Conecta tu aplicación a una base de datos como MongoDB, PostgreSQL o SQLite.</span>
-                            </li>
-                            <li>
-                                <strong>Plantillas dinámicas</strong>
-                                <span class="resource-desc">Usa motores de plantillas como EJS o Pug para generar HTML dinámico.</span>
-                            </li>
-                            <li>
-                                <strong>Despliegue</strong>
-                                <span class="resource-desc">Publica tu sitio en plataformas como Heroku, Vercel o Railway.</span>
-                            </li>
-                        </ul>
+                    <div class="resource-grid">
+                        <a class="resource-card" href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer">
+                            <span>Runtime</span>
+                            <strong>Node.js Docs</strong>
+                            <p>APIs nativas, sistema de modulos, filesystem y procesos.</p>
+                        </a>
+                        <a class="resource-card" href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">
+                            <span>Framework</span>
+                            <strong>Express Guide</strong>
+                            <p>Rutas, middleware, respuestas HTTP y static assets.</p>
+                        </a>
+                        <a class="resource-card" href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">
+                            <span>Packages</span>
+                            <strong>npm Docs</strong>
+                            <p>Dependencias, scripts y flujo de instalacion.</p>
+                        </a>
                     </div>
-                </div>
-            </section>
-        </section>
 
-        <section id="acerca" class="tab-content">
-            <section class="section">
-                <div class="container">
-                    <h2 class="section-title">Acerca de este proyecto</h2>
-                    <div class="card">
-                        <p>Este sitio es una guía tutorial diseñada para ayudar a principiantes a crear y ejecutar un sitio web local usando tecnologías modernas del lado del servidor.</p>
-
-                        <h3>Tecnologías utilizadas</h3>
-                        <ul class="tech-list">
-                            <li><span class="tech-badge">HTML5</span> Estructura y contenido de la página</li>
-                            <li><span class="tech-badge">CSS3</span> Diseño visual y presentación</li>
-                            <li><span class="tech-badge">JavaScript</span> Interactividad y lógica de navegación por pestañas</li>
-                            <li><span class="tech-badge">Node.js</span> Entorno de ejecución del lado del servidor</li>
-                            <li><span class="tech-badge">Express</span> Framework web para Node.js</li>
-                        </ul>
-
-                        <h3>Propósito</h3>
-                        <p>El objetivo de este tutorial es proporcionar una introducción clara y práctica al desarrollo backend con Node.js y Express, permitiendo a cualquier persona crear su primer servidor web local en pocos minutos.</p>
+                    <div class="roadmap-card">
+                        <div>
+                            <p class="eyebrow">Siguiente modulo</p>
+                            <h3>De pagina estatica a API REST</h3>
+                            <p>Agrega rutas JSON, controladores y validacion para construir endpoints reutilizables.</p>
+                        </div>
+                        <a href="#guia" class="btn btn-primary" data-tab="guia">Repasar base</a>
                     </div>
-                    <div style="text-align:center;margin-top:2rem">
-                        <a href="#guia" class="btn btn-primary" data-tab="guia">Comenzar el tutorial</a>
-                    </div>
-                </div>
-            </section>
-        </section>
-    </main>
+                </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 WebLocal Tutorial</p>
+                <section id="acerca" class="tab-content" aria-labelledby="acerca-title">
+                    <div class="section-heading align-left">
+                        <p class="eyebrow">Proyecto</p>
+                        <h2 id="acerca-title">Backend Master como entorno de practica</h2>
+                        <p>Una interfaz educativa que prioriza legibilidad, ejecucion y pensamiento tecnico.</p>
+                    </div>
+
+                    <div class="about-grid">
+                        <article class="about-card large">
+                            <h3>Filosofia developer-first</h3>
+                            <p>La experiencia elimina decoracion innecesaria y enfoca la atencion en comandos, codigo, progreso y estructura mental del backend.</p>
+                            <p>El usuario debe sentir que esta operando dentro de un entorno profesional de desarrollo, no leyendo una pagina generica.</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>Stack visual</h3>
+                            <ul class="tag-list">
+                                <li>Inter UI</li>
+                                <li>Mono code</li>
+                                <li>Node green</li>
+                                <li>Deep navy</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+            </main>
         </div>
-    </footer>
+    </div>
 
     <script src="scripts/app.js"></script>
 </body>

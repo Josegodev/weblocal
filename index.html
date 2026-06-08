@@ -19,59 +19,81 @@
         </div>
     </nav>
 
-    <main class="container">
+    <main>
         <section id="inicio" class="tab-content active">
-            <div class="card">
-                <h1>Bienvenido a WebLocal</h1>
-                <p class="lead">Aprende a crear y ejecutar tu propio sitio web local usando Node.js y Express.</p>
-                <p>Esta guía práctica te llevará paso a paso desde la configuración inicial hasta tener un servidor web funcionando en tu computadora. No necesitas experiencia previa con Node.js — solo seguir las instrucciones.</p>
-                <div class="card card-highlight">
-                    <h3>Qué aprenderás</h3>
-                    <ul>
-                        <li>Configurar un proyecto Node.js desde cero</li>
-                        <li>Instalar y usar Express como servidor web</li>
-                        <li>Servir archivos estáticos con Express</li>
-                        <li>Ejecutar un servidor local en tu máquina</li>
-                    </ul>
+            <div class="hero">
+                <div class="container">
+                    <h1 class="hero-title">Crea tu primer sitio web local</h1>
+                    <p class="hero-subtitle">Aprende Node.js y Express desde cero. Sin complicaciones.</p>
+                    <a href="#guia" class="btn btn-primary" data-tab="guia">Comenzar ahora</a>
                 </div>
-                <p>Selecciona la pestaña <strong>Guía</strong> para comenzar.</p>
             </div>
+
+            <section class="section features-section">
+                <div class="container">
+                    <h2 class="section-title">¿Qué aprenderás?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📦</div>
+                            <h3>Configurar Node.js</h3>
+                            <p>Crea un proyecto desde cero con npm y package.json</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Express</h3>
+                            <p>Instala y configura el framework web más popular de Node.js</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>Servidor local</h3>
+                            <p>Ejecuta tu propio servidor web en tu máquina en minutos</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Despliegue</h3>
+                            <p>Aprende los fundamentos para llevar tu app a producción</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <section id="guia" class="tab-content">
-            <div class="card">
-                <h1>Guía paso a paso</h1>
-                <h2>Requisitos previos</h2>
-                <p>Antes de comenzar, asegúrate de tener lo siguiente instalado:</p>
-                <ul>
-                    <li><code>Node.js</code></li>
-                    <li><code>npm</code></li>
-                </ul>
-                <h2>Pasos</h2>
-                <ol class="steps">
-                    <li>
-                        <div class="step-content">
-                            <h3>Crea una carpeta para tu proyecto</h3>
-                            <pre><code class="language-bash">mkdir mi-sitio-web-local</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Navega hasta la carpeta recién creada</h3>
-                            <pre><code class="language-bash">cd mi-sitio-web-local</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Inicializa un proyecto de Node.js y instala las dependencias necesarias</h3>
-                            <pre><code class="language-bash">npm init -y
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Guía paso a paso</h2>
+                    <div class="card">
+                        <h3>Requisitos previos</h3>
+                        <p>Antes de comenzar, asegúrate de tener lo siguiente instalado:</p>
+                        <ul>
+                            <li><code>Node.js</code></li>
+                            <li><code>npm</code></li>
+                        </ul>
+                        <h3>Pasos</h3>
+                        <ol class="steps">
+                            <li>
+                                <div class="step-content">
+                                    <h3>Crea una carpeta para tu proyecto</h3>
+                                    <pre><code class="language-bash">mkdir mi-sitio-web-local</code></pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Navega hasta la carpeta recién creada</h3>
+                                    <pre><code class="language-bash">cd mi-sitio-web-local</code></pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Inicializa un proyecto de Node.js y instala las dependencias necesarias</h3>
+                                    <pre><code class="language-bash">npm init -y
 npm install express --save</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Crea un archivo <code>index.html</code> en la carpeta principal de tu proyecto</h3>
-                            <pre><code class="language-bash">echo '
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Crea un archivo <code>index.html</code> en la carpeta principal de tu proyecto</h3>
+                                    <pre><code class="language-bash">echo '
 &lt;!DOCTYPE html&gt;
 &lt;html lang="es"&gt;
 
@@ -84,18 +106,18 @@ npm install express --save</code></pre>
 &lt;/body&gt;
 
 &lt;/html&gt;' &gt; index.html</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Crea un archivo <code>app.js</code> en la carpeta principal de tu proyecto</h3>
-                            <pre><code class="language-bash">touch app.js</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Agrega el siguiente código a <code>app.js</code></h3>
-                            <pre><code class="language-javascript">const express = require('express');
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Crea un archivo <code>app.js</code> en la carpeta principal de tu proyecto</h3>
+                                    <pre><code class="language-bash">touch app.js</code></pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Agrega el siguiente código a <code>app.js</code></h3>
+                                    <pre><code class="language-javascript">const express = require('express');
 const path = require('path');
 
 const app = express();
@@ -110,84 +132,100 @@ app.get('/', (req, res) =&gt; {
 
 // Start the server on port 3000
 app.listen(3000);</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Arranca el servidor web local</h3>
-                            <pre><code class="language-bash">node app.js</code></pre>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="step-content">
-                            <h3>Abre un navegador y ve a <code>http://localhost:3000</code></h3>
-                            <p>¡Deberías ver tu sitio web funcionando!</p>
-                        </div>
-                    </li>
-                </ol>
-            </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Arranca el servidor web local</h3>
+                                    <pre><code class="language-bash">node app.js</code></pre>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-content">
+                                    <h3>Abre un navegador y ve a <code>http://localhost:3000</code></h3>
+                                    <p>¡Deberías ver tu sitio web funcionando!</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div style="text-align:center;margin-top:2rem">
+                        <a href="#recursos" class="btn btn-secondary" data-tab="recursos">Ver recursos adicionales</a>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <section id="recursos" class="tab-content">
-            <div class="card">
-                <h1>Recursos útiles</h1>
-                <p>Aquí encontrarás enlaces y sugerencias para seguir aprendiendo.</p>
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Recursos útiles</h2>
+                    <div class="card">
+                        <p>Aquí encontrarás enlaces y sugerencias para seguir aprendiendo.</p>
 
-                <h2>Documentación oficial</h2>
-                <ul class="resource-list">
-                    <li>
-                        <a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer">Node.js Documentation</a>
-                        <span class="resource-desc">Guía oficial de Node.js, API reference y guías de inicio.</span>
-                    </li>
-                    <li>
-                        <a href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">npm Documentation</a>
-                        <span class="resource-desc">Todo sobre el gestor de paquetes de Node.js.</span>
-                    </li>
-                    <li>
-                        <a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Express.js Documentation</a>
-                        <span class="resource-desc">Framework web rápido y minimalista para Node.js.</span>
-                    </li>
-                </ul>
+                        <h3>Documentación oficial</h3>
+                        <ul class="resource-list">
+                            <li>
+                                <a href="https://nodejs.org/en/docs/" target="_blank" rel="noopener noreferrer">Node.js Documentation</a>
+                                <span class="resource-desc">Guía oficial de Node.js, API reference y guías de inicio.</span>
+                            </li>
+                            <li>
+                                <a href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">npm Documentation</a>
+                                <span class="resource-desc">Todo sobre el gestor de paquetes de Node.js.</span>
+                            </li>
+                            <li>
+                                <a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Express.js Documentation</a>
+                                <span class="resource-desc">Framework web rápido y minimalista para Node.js.</span>
+                            </li>
+                        </ul>
 
-                <h2>Próximos pasos sugeridos</h2>
-                <ul class="resource-list">
-                    <li>
-                        <strong>Rutas y middleware</strong>
-                        <span class="resource-desc">Aprende a definir rutas y usar middleware en Express para manejar peticiones HTTP.</span>
-                    </li>
-                    <li>
-                        <strong>Bases de datos</strong>
-                        <span class="resource-desc">Conecta tu aplicación a una base de datos como MongoDB, PostgreSQL o SQLite.</span>
-                    </li>
-                    <li>
-                        <strong>Plantillas dinámicas</strong>
-                        <span class="resource-desc">Usa motores de plantillas como EJS o Pug para generar HTML dinámico.</span>
-                    </li>
-                    <li>
-                        <strong>Despliegue</strong>
-                        <span class="resource-desc">Publica tu sitio en plataformas como Heroku, Vercel o Railway.</span>
-                    </li>
-                </ul>
-            </div>
+                        <h3>Próximos pasos sugeridos</h3>
+                        <ul class="resource-list">
+                            <li>
+                                <strong>Rutas y middleware</strong>
+                                <span class="resource-desc">Aprende a definir rutas y usar middleware en Express para manejar peticiones HTTP.</span>
+                            </li>
+                            <li>
+                                <strong>Bases de datos</strong>
+                                <span class="resource-desc">Conecta tu aplicación a una base de datos como MongoDB, PostgreSQL o SQLite.</span>
+                            </li>
+                            <li>
+                                <strong>Plantillas dinámicas</strong>
+                                <span class="resource-desc">Usa motores de plantillas como EJS o Pug para generar HTML dinámico.</span>
+                            </li>
+                            <li>
+                                <strong>Despliegue</strong>
+                                <span class="resource-desc">Publica tu sitio en plataformas como Heroku, Vercel o Railway.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </section>
 
         <section id="acerca" class="tab-content">
-            <div class="card">
-                <h1>Acerca de este proyecto</h1>
-                <p>Este sitio es una guía tutorial diseñada para ayudar a principiantes a crear y ejecutar un sitio web local usando tecnologías modernas del lado del servidor.</p>
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Acerca de este proyecto</h2>
+                    <div class="card">
+                        <p>Este sitio es una guía tutorial diseñada para ayudar a principiantes a crear y ejecutar un sitio web local usando tecnologías modernas del lado del servidor.</p>
 
-                <h2>Tecnologías utilizadas</h2>
-                <ul class="tech-list">
-                    <li><span class="tech-badge">HTML5</span> Estructura y contenido de la página</li>
-                    <li><span class="tech-badge">CSS3</span> Diseño visual y presentación</li>
-                    <li><span class="tech-badge">JavaScript</span> Interactividad y lógica de navegación por pestañas</li>
-                    <li><span class="tech-badge">Node.js</span> Entorno de ejecución del lado del servidor</li>
-                    <li><span class="tech-badge">Express</span> Framework web para Node.js</li>
-                </ul>
+                        <h3>Tecnologías utilizadas</h3>
+                        <ul class="tech-list">
+                            <li><span class="tech-badge">HTML5</span> Estructura y contenido de la página</li>
+                            <li><span class="tech-badge">CSS3</span> Diseño visual y presentación</li>
+                            <li><span class="tech-badge">JavaScript</span> Interactividad y lógica de navegación por pestañas</li>
+                            <li><span class="tech-badge">Node.js</span> Entorno de ejecución del lado del servidor</li>
+                            <li><span class="tech-badge">Express</span> Framework web para Node.js</li>
+                        </ul>
 
-                <h2>Propósito</h2>
-                <p>El objetivo de este tutorial es proporcionar una introducción clara y práctica al desarrollo backend con Node.js y Express, permitiendo a cualquier persona crear su primer servidor web local en pocos minutos.</p>
-            </div>
+                        <h3>Propósito</h3>
+                        <p>El objetivo de este tutorial es proporcionar una introducción clara y práctica al desarrollo backend con Node.js y Express, permitiendo a cualquier persona crear su primer servidor web local en pocos minutos.</p>
+                    </div>
+                    <div style="text-align:center;margin-top:2rem">
+                        <a href="#guia" class="btn btn-primary" data-tab="guia">Comenzar el tutorial</a>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
 

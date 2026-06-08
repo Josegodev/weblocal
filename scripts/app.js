@@ -1,11 +1,47 @@
-// ... existing code ...
+(function () {
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
 
-app.get('/', (req, res) => {
-    // ... existing code ...
+    function activateTab(tabId) {
+        tabs.forEach(function (link) {
+            const isActive = link.getAttribute('data-tab') === tabId;
+            link.classList.toggle('active', isActive);
+        });
 
-    { { res.sendFile(path.resolve(__dirname, 'index.html')); } }
+        contents.forEach(function (section) {
+            const isActive = section.id === tabId;
+            section.classList.toggle('active', isActive);
+        });
+    }
 
-    // ... rest of route function ...
-});
+    function getTabFromHash() {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            const match = document.querySelector('.tab-link[data-tab="' + hash + '"]');
+            if (match) return hash;
+        }
+        return 'inicio';
+    }
 
-// ... rest of code ...
+    function handleTabClick(e) {
+        e.preventDefault();
+        const tabId = this.getAttribute('data-tab');
+        window.location.hash = tabId;
+        activateTab(tabId);
+    }
+
+    tabs.forEach(function (link) {
+        link.addEventListener('click', handleTabClick);
+    });
+
+    window.addEventListener('hashchange', function () {
+        const tabId = getTabFromHash();
+        activateTab(tabId);
+    });
+
+    const initialTab = getTabFromHash();
+    if (window.location.hash !== '#' + initialTab) {
+        window.location.hash = initialTab;
+    }
+    activateTab(initialTab);
+})();
